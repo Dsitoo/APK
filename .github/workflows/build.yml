@@ -28,7 +28,7 @@ jobs:
         # Command to build APK
 
     - name: Upload APK Artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: apk
         path: path/to/apk
