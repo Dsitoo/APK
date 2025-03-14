@@ -4,16 +4,13 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
+    - name: Checkout repository
       uses: actions/checkout@v3
 
     - name: Set up Python
@@ -28,11 +25,10 @@ jobs:
 
     - name: Build APK
       run: |
-        # Añade comandos para construir tu APK aquí
-        echo "Construyendo APK..."
+        # Command to build APK
 
-    - name: Upload APK
+    - name: Upload APK Artifact
       uses: actions/upload-artifact@v2
       with:
         name: apk
-        path: path/to/your/apk/file
+        path: path/to/apk
