@@ -1,0 +1,94 @@
+#:kivy 1.11.1
+
+MyScreenManager:
+    SplashScreen:
+    LoginScreen:
+    RegisterScreen:
+
+<SplashScreen>:
+    name: "splash"
+    BoxLayout:
+        orientation: "vertical"
+        padding: 50
+        spacing: 20
+
+        Image:
+            id: logo
+            source: "assets/logo.jpg"
+            opacity: 0
+            size_hint: None, None
+            size: 200, 200
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+<LoginScreen>:
+    name: "login"
+    BoxLayout:
+        orientation: "vertical"
+        padding: 20
+        spacing: 20
+
+        Label:
+            text: "Inicio de sesión"
+            font_size: "32sp"
+            size_hint_y: None
+            height: 60
+            color: 0.1, 0.4, 0.8, 1
+
+        TextInput:
+            id: username
+            hint_text: "Usuario"
+            multiline: False
+
+        TextInput:
+            id: password
+            hint_text: "Contraseña"
+            multiline: False
+            password: True
+
+        BoxLayout:
+            size_hint_y: None
+            height: 40
+            spacing: 10
+
+            Button:
+                text: "Entrar"
+                on_press: root.iniciar_sesion()
+            Button:
+                text: "Registrarse"
+                on_press: root.manager.current = "register"
+
+<RegisterScreen>:
+    name: "register"
+    BoxLayout:
+        orientation: "vertical"
+        padding: 20
+        spacing: 20
+
+        Label:
+            text: "Registro de Usuario"
+            font_size: "32sp"
+            size_hint_y: None
+            height: 60
+
+        TextInput:
+            id: reg_username
+            hint_text: "Nuevo Usuario"
+            multiline: False
+
+        TextInput:
+            id: reg_password
+            hint_text: "Contraseña"
+            multiline: False
+            password: True
+
+        BoxLayout:
+            size_hint_y: None
+            height: 40
+            spacing: 10
+
+            Button:
+                text: "Registrar"
+                on_press: root.registrar_usuario()
+            Button:
+                text: "Volver"
+                on_press: root.manager.current = "login"
