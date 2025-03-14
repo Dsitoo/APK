@@ -28,7 +28,7 @@ jobs:
         # Command to build APK
 
     - name: Upload APK Artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4  # Update to the latest version
       with:
         name: apk
         path: path/to/apk
