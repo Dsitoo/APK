@@ -1,34 +1,22 @@
+# .github/workflows/build.yml
 name: Build APK
 
-on:
-  push:
-    branches:
-      - main
+on: [push, pull_request]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
-
+    - uses: actions/checkout@v2
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v2
       with:
-        python-version: '3.x'
-
+        python-version: '3.13'
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-
-    - name: Build APK
+    - name: Run tests
       run: |
-        # Command to build APK
-
-    - name: Upload APK Artifact
-      uses: actions/upload-artifact@v4  # Update to the latest version
-      with:
-        name: apk
-        path: path/to/apk
+        # Tus comandos de prueba aquí
