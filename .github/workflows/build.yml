@@ -1,6 +1,6 @@
 name: Build APK
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   build:
@@ -11,11 +11,12 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.13'
+        python-version: '3.x'
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
+        pip install -r <path-to-requirements>/requirements.txt
+    # Add other steps required for your job
     - name: Build APK
       run: |
         # Comandos para construir tu APK
